@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useLocation, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
@@ -24,9 +24,7 @@ const AddEdit = () => {
 	}, [id]);
 
 	const getSingleUser = async (id) => {
-		const response = await axios.get(
-			`https://crud-ern.herokuapp.com//user/${id}`
-		);
+		const response = await axios.get(`https://crud-ern.herokuapp.com/user/${id}`);
 		if (response.status === 200) {
 			setState({ ...response.data[0] });
 		}
@@ -34,7 +32,7 @@ const AddEdit = () => {
 
 	const addUser = async (data) => {
 		const response = await axios.post(
-			'https://crud-ern.herokuapp.com//user',
+			'https://crud-ern.herokuapp.com/user',
 			data
 		);
 		if (response.status === 200) {
@@ -44,7 +42,7 @@ const AddEdit = () => {
 
 	const updateUser = async (data, id) => {
 		const response = await axios.put(
-			`https://crud-ern.herokuapp.com//user/${id}`,
+			`https://crud-ern.herokuapp.com/user/${id}`,
 			data
 		);
 		if (response.status === 200) {

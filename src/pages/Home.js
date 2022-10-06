@@ -11,7 +11,7 @@ const Home = () => {
 	}, []);
 
 	const getUsers = async () => {
-		const response = await axios.get('https://crud-ern.herokuapp.com//users');
+		const response = await axios.get('https://crud-ern.herokuapp.com/users');
 		if (response.status === 200) {
 			setData(response.data);
 		}
@@ -20,7 +20,7 @@ const Home = () => {
 	const onDeleteUser = async (id) => {
 		if (window.confirm('Want to remove user record from data')) {
 			const response = await axios.delete(
-				`https://crud-ern.herokuapp.com//user/${id}`
+				`https://crud-ern.herokuapp.com/user/${id}`
 			);
 			if (response.status === 200) {
 				toast.success(response.data);
